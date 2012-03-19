@@ -1,4 +1,4 @@
-Class MarsRover{
+class MarsRover{
 
 	int xCord,yCord;
 	char direction;
@@ -8,18 +8,13 @@ Class MarsRover{
 		direction = d;		
 	}  
 	public String getPosition(){
-		String[] position;
-		position = new String[3]
-		d = getDirection();
-		cord[] = getCoordinates();
-		position[0] = toString(this.x);
-		position[1] = toString(this.y);
-		position[2] = d;
+		String position = xCord+ " " +yCord+ " "+ direction;
 		return(position);
 	}
-	public void execute(String instructions)
-		for(j = 0;j < instruction.length(); j++){
-			switch (instruction.charAt(j){
+	public void execute(String instructions){
+		
+		for(int j = 0;j < instructions.length(); j++){
+			switch (instructions.charAt(j)){
 				case 'M': 
 					move();
 					break;
@@ -34,65 +29,53 @@ Class MarsRover{
 		
 	}
 	
-	private String getDirection(){
-		d = this.direction;
-		return d;
-	}
-	private getCoordinates(){
-		int[] cord;
-		cord = new int[2];
-		cord[0] = this.x; 
-		cord[1] = this.y; 
-		return (cord);
-	}
-	private move(){
-		d = getDirection();
-		switch (d){
+	private void move(){
+		switch (this.direction){
 			case 'N':
-				this.y+=1;
+				this.yCord+=1;
 				break;
 			case 'S':
-				this.y-=1;
+				this.yCord-=1;
 				break;
 			case 'E':
-				this.x+=1;
+				this.xCord+=1;
 				break;
 			case 'W':
-				this.x-=1;
+				this.xCord-=1;
 				break;
 		}
 	}
-	private rotateLeft(){
-		d = getDirection();
-		switch(d){
+	private void rotateLeft(){
+
+		switch(this.direction){
 			case 'N':
-				this.d = 'W';
+				this.direction = 'W';
 				break;
 			case 'W':
-				this.d = 'S';
+				this.direction = 'S';
 				break;
 			case 'S':
-				this.d = 'E';
+				this.direction = 'E';
 				break;
 			case 'E':
-				this.d = 'N';
+				this.direction = 'N';
 				break;
 		}	
 	}
-	private rotateRight(){
-		d = getDirection();
-		switch(d){
+	private void rotateRight(){
+
+		switch(this.direction){
 			case 'N':
-				this.d = 'E';
+				this.direction = 'E';
 				break;
 			case 'E':
-				this.d = 'S';
+				this.direction = 'S';
 				break;
 			case 'S':
-				this.d = 'W';
+				this.direction = 'W';
 				break;
 			case 'W':
-				this.d = 'N';
+				this.direction = 'N';
 				break;
 		}
 	}
